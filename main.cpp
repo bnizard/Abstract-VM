@@ -48,7 +48,6 @@ int main(int ac, const char **av)
 		}
 		if (error)
 			throw SYNTAXEException("Erreur de syntaxe");
-		// display(s);
 		lexer(s);
 	}
 	catch (SEMICOLONException const& e)
@@ -209,10 +208,7 @@ void lexer(std::list<std::string> s)
 	    type.erase(type.begin());
 		type[0] = std::toupper(type[0], loc);
 	    std::string valeur(val[1]);
-
-	    // std::cout << "Instruction : " << trim(instruction) << std::endl;
-	    // std::cout << "Type : " << trim(type) << std::endl;
-	    // std::cout << "Valeur : " << trim(valeur) << std::endl;
+	    
 	    g_e.doInstruction(trim(instruction), g_e.getTypeWithString(trim(type)), trim(valeur));
 		p++;
 	}
